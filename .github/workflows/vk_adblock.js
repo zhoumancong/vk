@@ -2,7 +2,10 @@
 let body = $response.body;
 let obj = JSON.parse(body);
 
-// 确保正确处理响应结构并移除广告
+// 日志记录
+console.log(JSON.stringify(obj));
+
+// 移除广告对象
 if (obj.response && obj.response.items) {
     obj.response.items = obj.response.items.filter(item => !item.ad && !item.ad_data);
 }
