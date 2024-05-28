@@ -10,6 +10,7 @@ if (obj.response && obj.response.items) {
             let attachments = item.attachments;
             for (let attachment of attachments) {
                 if (attachment.link && attachment.link.url && attachment.link.url.startsWith('https://ads.vk.ru')) {
+                    console.log("Filtered ad: " + JSON.stringify(item));
                     return false;
                 }
             }
