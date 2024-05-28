@@ -5,7 +5,7 @@ let obj = JSON.parse(body);
 // 检查和过滤广告对象
 if (obj.response && obj.response.items) {
     obj.response.items = obj.response.items.filter(item => {
-        return !(item.hasOwnProperty('ad_data') || item.ad || item.is_ads || (item.source_id && item.source_id.toString().startsWith('-')));
+        return !item.hasOwnProperty('ERID');
     });
 }
 
