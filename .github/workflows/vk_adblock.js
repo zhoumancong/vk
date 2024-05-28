@@ -5,7 +5,17 @@ let obj = JSON.parse(body);
 // 检查和过滤广告对象
 if (obj.response && obj.response.items) {
     obj.response.items = obj.response.items.filter(item => {
-        return !item.hasOwnProperty('ERID');
+        // 过滤带有 ad 标识的广告内容
+        if (item.hasOwnProperty('ad')) {
+            return false;
+        }
+        
+        // 过滤带有 ERID 的广告内容
+        if (item.hasOwnProperty('ERID')) {
+            return false;
+        }
+        
+        return true;
     });
 }
 
